@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title> Assign5a </title>
+</head>
+
+<body>
+	<form> 
+		First Number: <br>
+		<input type= "number" name= "first number" id= "num1">
+		<br><br>
+		Second Number: <br>
+		<input type= "number" name= "second number" id= "num2">
+		<br><br>
+		<button onclick= "mainfunction()">Test Numbers</button>
+	</form>
+	<script language="javascript">
+
+		function isFactor(number, testnumber){
+			var factor = false;
+			if (number % testnumber == 0){
+				factor = true;
+			} else {
+				factor = false;
+			}
+			return factor;
+		}
+		// test #1 code 
+		// if (isFactor(10,2)){
+		// 	alert("isFactor works properly");
+		// }
+		// if (!isFactor(10,3)){
+		// 	alert("isFactor works properly");
+		// }
+
+		function showFactors(array){
+			for (var i = 0; i < array.length; i++) {
+				// alert(" Num: " + array[i] + "\n");
+				document.write(array[i]);
+				document.write("\n");
+			}
+		}
+		// test #2 code
+		// var array = [5, 12, 14 , 15];
+
+		function addFactors(array){
+			var sum = 0;
+			for (var i = 0; i <array.length; i++){
+				sum += array[i];
+			}
+			return sum;
+		}
+		// test #3 code
+		// var array = [1, 2, 3, 4], summedNums = addFactors(array);
+		// console.log(summedNums);
+		// document.write(summedNums);
+		
+		function getFactors(someNum){
+			var factors = new Array();
+			for (var i = 1; i < someNum; i++){
+				if(isFactor(someNum, i))
+					factors.push(i);
+			}
+			// showFactors(factors);
+			return factors;
+		}
+
+		function mainfunction(){
+			var frstNum = document.getElementById('num1').value;
+			var scndNum = document.getElementById('num2').value;
+			alert("passed part 1");
+
+			// I spent several hours and consulted with many of my classmates to try and find this error but was unsuccessful. The function "getFactors" works as I have tested it several times, but it will not work in this instance for some strange reason.
+
+			var factOfFN = getFactors(frstNum);
+			var factOfSN = getFactors(secondNum);
+			alert("passed part 2");
+			var sumOfFrstFacts = addFactors(factofFN); 
+			var sumOfSecondFacts = addFactors(factorofSN);
+			alert("passed part 3");
+			if (!isFactor(frstNum, sumOfSecondFacts))
+				document.write("These numbers are not amicable");
+			else if (!isFactor(scndNum, sumOfFrstFacts))
+				document.write("These numbers are not amicable");
+			else
+				document.write(frstNum + " and " + scndNum + " are amicable ");
+		}
+
+	</script>
+</body>
+
+
+</html>
